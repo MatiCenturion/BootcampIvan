@@ -1,0 +1,154 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs30 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs26\fsmilli13147 \cf0 \strokec2 1.\strokec0 \
+
+\fs25 \strokec2 Cargar un array de manera aleatoria con 10 n\'fameros enteros del -5 al 5. Imprimirlo en 
+\fs30 \strokec0 \
+
+\fs25 \strokec2 pantalla y computar cu\'e1l es el mayor elemento del vector.\strokec0 \
+
+\fs30 \
+var numero_aleatorio = [Int]()\
+//Ingresamos los valores al array\
+for _ in 0...9 \{ \
+    numero_aleatorio.append(Int.random(in: -5...5))\
+\}\
+print(numero_aleatorio)//Imprimimos dichos valores\
+var numero_mayor = numero_aleatorio[0]//iniciamos el dato con el primer [0] valor de los numeros generados\
+\
+// Cuando el auxiliar es mayor al numero_mayor, este toma su valor\
+for numero_auxiliar in numero_aleatorio \{\
+    if numero_auxiliar > numero_mayor\{\
+    numero_mayor = numero_auxiliar\
+    \}\
+\}\
+print("El numero mayor del array es: ", numero_mayor)\
+\
+
+\fs26\fsmilli13147 \strokec2 2.\strokec0 \
+
+\fs25 \strokec2 Cargar un array de manera aleatoria con 100 n\'fameros enteros del -30 al 30. Imprimirlo en 
+\fs30 \strokec0 \
+
+\fs25 \strokec2 pantalla y computar cu\'e1l es el elemento que m\'e1s veces se repite, y cu\'e1les son los n\'fameros 
+\fs30 \strokec0 \
+
+\fs25 \strokec2 que no est\'e1n presentes (si es que hay alguno).\strokec0 \
+
+\fs30 \
+\
+var numero_aleatorio = [Int]()\
+var contador_repeticiones = [Int: Int]()  // Diccionario para contar repeticiones\
+var numero_mas_repetido: Int?\
+var max_repeticiones = 0\
+\
+// Cargamos el array\
+for _ in 0...99 \{\
+    let numero = Int.random(in: -30...30)\
+    numero_aleatorio.append(numero)\
+    \
+    // sumamos el valor del contador cada que repite un numero\
+    contador_repeticiones[numero, default: 0] += 1\
+\}\
+\
+print("Arreglo generado: \\(numero_aleatorio)")\
+\
+// buscamos el n\'famero que m\'e1s veces se repite\
+for (numero, cantidad) in contador_repeticiones \{\
+    if cantidad > max_repeticiones \{\
+        max_repeticiones = cantidad\
+        numero_mas_repetido = numero\
+    \}\
+\}\
+\
+// Imprimimos el n\'famero que m\'e1s veces se repite\
+if let numero_mas_repetido = numero_mas_repetido \{\
+    print("El n\'famero que m\'e1s veces se repite es \\(numero_mas_repetido) y se repite \\(max_repeticiones) veces.")\
+\} else \{\
+    print("No se encontr\'f3 un n\'famero repetido.")\
+\}\
+\
+// Este es el procedimiento para encontrar los n\'fameros que no est\'e1n presentes\
+let todos_los_numeros = Set(-30...30)  // Todos los n\'fameros posibles entre -30 y 30\
+let numeros_presentes = Set(numero_aleatorio)  // Los n\'fameros que est\'e1n en el arreglo\
+\
+//Aqui guardamos todos los numeros que estan presentes en\
+//todos_los_numeros pero que no estan presentes en numeros_presentes\
+let numeros_faltantes = todos_los_numeros.subtracting(numeros_presentes)  \
+\
+// Aqui imprimimos los numeros que faltan si es que hay\
+if numeros_faltantes.isEmpty \{\
+    print("Todos los n\'fameros del rango est\'e1n presentes.")\
+\} else \{\
+    print("Los n\'fameros que no est\'e1n presentes son: \\(numeros_faltantes)")\
+\}\
+\
+
+\fs26\fsmilli13147 \strokec2 3.\strokec0 \
+
+\fs25 \strokec2 Hacer una funci\'f3n que, dada una palabra (String) o frase, diga si la misma es pal\'edndrome o 
+\fs30 \strokec0 \
+
+\fs25 \strokec2 no. Una palabra/frase pal\'edndrome es aquella que se lee igual tanto de atr\'e1s para adelante, 
+\fs30 \strokec0 \
+
+\fs25 \strokec2 como de adelante para atr\'e1s. Ejemplos de pal\'edndromes: "MADAM", "RACECAR", "AMORE, 
+\fs30 \strokec0 \
+
+\fs25 \strokec2 ROMA", "BORROW OR ROB", "WAS IT A CAR OR A CAT I SAW?".\
+\
+
+\fs30 func esPalindroma(_ texto: String) -> Bool \{\
+    // Aqui eliminamos caracteres no alfab\'e9ticos y convertimos todo a min\'fasculas.\
+    let textoFiltrado = texto.lowercased().filter \{ $0.isLetter \}\
+    \
+    // Paso 2: Comprobar si el texto es igual a su reverso.\
+    return textoFiltrado == String(textoFiltrado.reversed())\
+\}\
+\
+print("Digite una palabra para verificar si es palindrome")\
+if let palabra_ingresada = readLine() \{\
+    // Usar el operador ternario para hacer la comparaci\'f3n en una l\'ednea\
+    print(esPalindroma(palabra_ingresada) ? "La palabra ingresada es pal\'edndroma: \\(palabra_ingresada)" : "La palabra ingresada no es pal\'edndroma: \\(palabra_ingresada)")\
+\} else \{\
+    print("No se pudo leer la entrada.")\
+\}\strokec0 \
+\
+
+\fs26\fsmilli13147 \strokec2 4.\strokec0 \
+
+\fs25 \strokec2 Dada una cadena de caracteres (String) de longitud desconocida que tiene solamente d\'edgitos, 
+\fs30 \strokec0 \
+
+\fs25 \strokec2 crear un array de N elementos (donde N es el tama\'f1o de la cadena) que tenga cada uno de los 
+\fs30 \strokec0 \
+
+\fs25 \strokec2 valores num\'e9ricos de los d\'edgitos.\
+\
+var cadena: String = ""  // Cadena que contendr\'e1 los d\'edgitos\
+var arrayNumeros: [Int] = []  // Array para almacenar los n\'fameros\
+\
+// Solicitamos al usuario que ingrese una cadena de d\'edgitos\
+print("Digite una cadena de d\'edgitos: ")\
+cadena = readLine() ?? ""  // Si no se ingresa nada, se le asigna una cadena vac\'eda\
+\
+// Iterar sobre cada car\'e1cter de la cadena\
+//wholeNumberValue convierte un caracter que representa un digito en un valor numerico\
+for caracter in cadena \{\
+    if let numero = caracter.wholeNumberValue \{\
+        arrayNumeros.append(numero)  // Convertir el car\'e1cter a n\'famero y agregarlo al array\
+    \}\
+\}\
+// Imprimimos el array de n\'fameros\
+print("El array de n\'fameros es: \\(arrayNumeros)")\strokec0 \
+}
