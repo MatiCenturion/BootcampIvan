@@ -10,8 +10,8 @@ import UIKit
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
          
