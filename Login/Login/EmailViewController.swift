@@ -14,7 +14,7 @@ class EmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelEmail.text = "e enviaremos un correo de confirmacion"
+        labelEmail.text = "Le enviaremos un correo de confirmacion"
     }
     
     @objc func backButtonTapped() {
