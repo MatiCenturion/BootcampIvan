@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f06-Lp-Nq2">
-                                <rect key="frame" x="85.333333333333329" y="156" width="231.33333333333337" height="68.333333333333314"/>
+                                <rect key="frame" x="85.333333333333314" y="156" width="231.33333333333337" height="68.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduzca su correo o usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQ8-x1-xba">
                                         <rect key="frame" x="0.0" y="0.0" width="231.33333333333334" height="20.333333333333332"/>
@@ -196,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHG-fI-F0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.82089552238804" y="736.61327231121277"/>
+            <point key="canvasLocation" x="284" y="736"/>
         </scene>
         <!--Update Password View Controller-->
         <scene sceneID="q6P-BR-60X">
@@ -240,6 +240,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Cancelar"/>
+                                        <connections>
+                                            <action selector="aceptarnewUser:" destination="yaF-kU-wV3" eventType="touchUpInside" id="15G-ib-9xR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXb-JM-zbc">
                                         <rect key="frame" x="142.66666666666666" y="0.0" width="127.33333333333334" height="34.333333333333336"/>
@@ -271,8 +274,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ouu-lv-llH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="yaF-kU-wV3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="909" y="737"/>
+            <point key="canvasLocation" x="1057" y="736"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Rjv-gU-AfA">
@@ -311,6 +315,15 @@
                                 <color key="highlightedColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <size key="shadowOffset" width="7" height="8"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Do5-ZA-3By">
+                                <rect key="frame" x="150" y="271" width="100" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Game"/>
+                                <connections>
+                                    <segue destination="u0a-dg-F4i" kind="show" id="SXJ-G2-SHp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cf6-Hk-Sgl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -332,10 +345,26 @@
             </objects>
             <point key="canvasLocation" x="1828.3582089552237" y="-2.7459954233409607"/>
         </scene>
+        <!--Game View Controller-->
+        <scene sceneID="cAR-JL-UeD">
+            <objects>
+                <viewController storyboardIdentifier="GameViewControllerID" id="u0a-dg-F4i" customClass="GameViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NOa-iN-PD6">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aZv-tj-Utj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4XB-uz-iIU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G1Z-6Y-ogw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2693" y="-3"/>
+        </scene>
         <!--New User View Controller-->
         <scene sceneID="yZb-Ka-Rlg">
             <objects>
-                <viewController id="9uG-N5-X9I" customClass="NewUserViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewUserViewControllerID" id="9uG-N5-X9I" customClass="NewUserViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VQm-ov-16E">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,7 +402,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9WT-KO-vr4">
-                                <rect key="frame" x="94.333333333333329" y="374.66666666666669" width="213.33333333333337" height="34.333333333333314"/>
+                                <rect key="frame" x="94.333333333333314" y="374.66666666666669" width="213.33333333333337" height="34.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3P-8O-Cw8">
                                         <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="34.333333333333336"/>
@@ -402,12 +431,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZT4-I2-QAO"/>
                     <connections>
+                        <outlet property="aceptarNewUserButton" destination="chy-PH-F7t" id="tDB-ws-EoX"/>
+                        <outlet property="cancelarNewUserbutton" destination="Z3P-8O-Cw8" id="j94-Fe-jSN"/>
+                        <outlet property="newPasswordTextField" destination="O1S-dS-j0c" id="YFh-Fo-ikG"/>
+                        <outlet property="newUserTextField" destination="Dzg-NX-P1J" id="uKS-6G-f3a"/>
                         <outlet property="tituloLabel" destination="D1x-JI-2tE" id="2sy-2Q-iF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcw-Yl-PI9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2564.1791044776119" y="-3.432494279176201"/>
+            <point key="canvasLocation" x="1828" y="736"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ncA-eR-VCh">
@@ -425,7 +458,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAL-zf-4Zc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.31343283582089" y="-2.7459954233409607"/>
+            <point key="canvasLocation" x="284" y="-3"/>
         </scene>
     </scenes>
     <resources>
