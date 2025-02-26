@@ -106,6 +106,7 @@
                         <constraints>
                             <constraint firstItem="Ktn-g3-K2C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6IC-fM-kFp"/>
                             <constraint firstItem="aQh-63-1wc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Eir-xE-rh8"/>
+                            <constraint firstItem="aQh-63-1wc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Okz-kB-vpW"/>
                             <constraint firstItem="4Ca-1C-JNo" firstAttribute="top" secondItem="Ktn-g3-K2C" secondAttribute="bottom" constant="16" id="Qc5-AX-hg5"/>
                             <constraint firstItem="ILo-6U-tG8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rhs-S1-amn"/>
                             <constraint firstItem="fgF-Pk-6xa" firstAttribute="top" secondItem="ILo-6U-tG8" secondAttribute="bottom" constant="16" id="VTJ-LV-64S"/>
@@ -183,6 +184,7 @@
                             <constraint firstItem="f06-Lp-Nq2" firstAttribute="top" secondItem="Lzn-Zi-WSd" secondAttribute="top" constant="50" id="UgG-jh-VcE"/>
                             <constraint firstItem="f06-Lp-Nq2" firstAttribute="centerX" secondItem="Sc4-c6-HBZ" secondAttribute="centerX" id="UvU-S5-jjS"/>
                             <constraint firstItem="AXC-3g-zcO" firstAttribute="top" secondItem="f06-Lp-Nq2" secondAttribute="bottom" constant="19.670000000000002" id="VfJ-5X-8RJ"/>
+                            <constraint firstItem="f06-Lp-Nq2" firstAttribute="centerX" secondItem="Sc4-c6-HBZ" secondAttribute="centerX" id="ed8-db-p2I"/>
                             <constraint firstItem="FVy-Da-vym" firstAttribute="top" secondItem="AXC-3g-zcO" secondAttribute="bottom" constant="40.670000000000002" id="gcd-9m-nN0"/>
                             <constraint firstItem="AXC-3g-zcO" firstAttribute="centerX" secondItem="Sc4-c6-HBZ" secondAttribute="centerX" id="kkB-q9-97H"/>
                             <constraint firstItem="FVy-Da-vym" firstAttribute="centerX" secondItem="Sc4-c6-HBZ" secondAttribute="centerX" id="mHe-PP-djJ"/>
@@ -263,6 +265,7 @@
                             <constraint firstItem="lE7-RZ-Iwj" firstAttribute="top" secondItem="2G6-Kc-Ncp" secondAttribute="bottom" constant="16" id="YIW-ag-qJ2"/>
                             <constraint firstItem="lE7-RZ-Iwj" firstAttribute="centerX" secondItem="rW3-y0-SB3" secondAttribute="centerX" id="eFf-oo-yhb"/>
                             <constraint firstItem="2G6-Kc-Ncp" firstAttribute="leading" secondItem="YRM-At-Doo" secondAttribute="leading" constant="33.5" id="oE9-h8-aSo"/>
+                            <constraint firstItem="lE7-RZ-Iwj" firstAttribute="top" secondItem="2G6-Kc-Ncp" secondAttribute="bottom" constant="16" id="olU-M3-1e7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="S9J-Lf-GqZ"/>
@@ -328,6 +331,8 @@
                         <viewLayoutGuide key="safeArea" id="cf6-Hk-Sgl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="TO1-c2-U8G" firstAttribute="centerX" secondItem="CzF-sF-os0" secondAttribute="centerX" id="0jJ-h5-d7A"/>
+                            <constraint firstItem="bbe-9f-EaG" firstAttribute="centerX" secondItem="CzF-sF-os0" secondAttribute="centerX" id="1MX-FO-tMf"/>
                             <constraint firstItem="TO1-c2-U8G" firstAttribute="leading" secondItem="cf6-Hk-Sgl" secondAttribute="leading" id="FiT-7R-bkQ"/>
                             <constraint firstItem="TO1-c2-U8G" firstAttribute="trailing" secondItem="cf6-Hk-Sgl" secondAttribute="trailing" id="JPF-4h-Uqu"/>
                             <constraint firstItem="d1P-az-x6W" firstAttribute="top" secondItem="TO1-c2-U8G" secondAttribute="bottom" constant="16" id="K2u-6l-tIr"/>
@@ -367,6 +372,12 @@
                                                 <rect key="frame" x="81" y="132" width="64" height="61"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.81252607254528852" green="0.97739310241166399" blue="1" alpha="0.54954123983577807" colorSpace="custom" customColorSpace="displayP3"/>
@@ -386,6 +397,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="1EL-BF-wRH" firstAttribute="top" secondItem="8Iz-n4-eil" secondAttribute="top" constant="717" id="LDs-pE-1T8"/>
+                                    <constraint firstItem="1EL-BF-wRH" firstAttribute="centerX" secondItem="8Iz-n4-eil" secondAttribute="centerX" id="Oee-ne-zjt"/>
+                                    <constraint firstItem="c8s-nS-ZMf" firstAttribute="centerX" secondItem="8Iz-n4-eil" secondAttribute="centerX" id="a7M-Kg-rpd"/>
                                     <constraint firstItem="c8s-nS-ZMf" firstAttribute="top" secondItem="8Iz-n4-eil" secondAttribute="top" constant="152" id="gkl-MI-iaJ"/>
                                 </constraints>
                             </stackView>
@@ -417,6 +430,7 @@
                             <constraint firstAttribute="bottomMargin" secondItem="8Iz-n4-eil" secondAttribute="bottom" constant="-39" id="7n1-yK-7al"/>
                             <constraint firstItem="eQ4-0c-WqI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GED-0r-zvK" secondAttribute="trailing" constant="8" symbolic="YES" id="CDY-uk-KaC"/>
                             <constraint firstItem="GED-0r-zvK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZEB-dR-W22" secondAttribute="trailing" constant="8" symbolic="YES" id="Iba-1L-SMQ"/>
+                            <constraint firstItem="ZEB-dR-W22" firstAttribute="top" secondItem="aZv-tj-Utj" secondAttribute="top" constant="22" id="Lya-fc-Tdd"/>
                             <constraint firstItem="8Iz-n4-eil" firstAttribute="leading" secondItem="NOa-iN-PD6" secondAttribute="leading" id="Mhg-ge-JSE"/>
                             <constraint firstItem="8Iz-n4-eil" firstAttribute="trailing" secondItem="aZv-tj-Utj" secondAttribute="trailing" id="PIb-54-bdo"/>
                             <constraint firstItem="8Iz-n4-eil" firstAttribute="top" secondItem="NOa-iN-PD6" secondAttribute="top" id="RAC-LU-p7z"/>
@@ -487,7 +501,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9WT-KO-vr4">
-                                <rect key="frame" x="94.333333333333314" y="374.66666666666669" width="213.33333333333337" height="34.333333333333314"/>
+                                <rect key="frame" x="94.333333333333329" y="374.66666666666669" width="213.33333333333337" height="34.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3P-8O-Cw8">
                                         <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="34.333333333333336"/>
@@ -500,12 +514,16 @@
                                         <buttonConfiguration key="configuration" style="gray" title="Aceptar"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Z3P-8O-Cw8" firstAttribute="leading" secondItem="9WT-KO-vr4" secondAttribute="leading" id="ae8-Rz-qeZ"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JeL-c7-3Dk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9WT-KO-vr4" firstAttribute="top" secondItem="umC-5a-VG7" secondAttribute="bottom" constant="30" id="LL0-rm-uHT"/>
+                            <constraint firstItem="9WT-KO-vr4" firstAttribute="centerX" secondItem="VQm-ov-16E" secondAttribute="centerX" id="MNL-cS-cN4"/>
                             <constraint firstItem="2hU-UN-cwD" firstAttribute="centerX" secondItem="VQm-ov-16E" secondAttribute="centerX" id="OeL-xR-DFX"/>
                             <constraint firstItem="9WT-KO-vr4" firstAttribute="centerX" secondItem="VQm-ov-16E" secondAttribute="centerX" id="WGM-UG-yYl"/>
                             <constraint firstItem="umC-5a-VG7" firstAttribute="centerX" secondItem="VQm-ov-16E" secondAttribute="centerX" id="WZp-p7-jed"/>
@@ -517,7 +535,7 @@
                     <navigationItem key="navigationItem" id="ZT4-I2-QAO"/>
                     <connections>
                         <outlet property="aceptarNewUserButton" destination="chy-PH-F7t" id="tDB-ws-EoX"/>
-                        <outlet property="cancelarNewUserbutton" destination="Z3P-8O-Cw8" id="j94-Fe-jSN"/>
+                        <outlet property="cancelarNewUserButton" destination="Z3P-8O-Cw8" id="l7C-F5-wU9"/>
                         <outlet property="newPasswordTextField" destination="O1S-dS-j0c" id="YFh-Fo-ikG"/>
                         <outlet property="newUserTextField" destination="Dzg-NX-P1J" id="uKS-6G-f3a"/>
                         <outlet property="tituloLabel" destination="D1x-JI-2tE" id="2sy-2Q-iF3"/>

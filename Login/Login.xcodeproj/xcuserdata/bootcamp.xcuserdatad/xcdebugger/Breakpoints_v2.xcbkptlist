@@ -3,4 +3,52 @@
    uuid = "70F984AC-B032-4CD0-993D-898FFBF36657"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F686551-181C-40B2-8D03-047CE8B0F4E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Login/NewUserViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "aceptarNewUser(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9F686551-181C-40B2-8D03-047CE8B0F4E7 - f70464ed07922158"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Login.NewUserViewController.aceptarNewUser(__C.UIButton) -&gt; ()"
+                  moduleName = "Login.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bootcamp/Documents/GitHub/BootcampIvan/Login/Login/NewUserViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35">
+               </Location>
+               <Location
+                  uuid = "9F686551-181C-40B2-8D03-047CE8B0F4E7 - f70464ed07922158"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Login.NewUserViewController.aceptarNewUser(__C.UIButton) -&gt; ()"
+                  moduleName = "Login.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bootcamp/Documents/GitHub/BootcampIvan/Login/Login/NewUserViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
