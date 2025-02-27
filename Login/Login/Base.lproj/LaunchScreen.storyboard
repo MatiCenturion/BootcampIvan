@@ -16,17 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 4" translatesAutoresizingMaskIntoConstraints="NO" id="Pvs-4f-wGr">
-                                <rect key="frame" x="-327" y="0.0" width="1047" height="861"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 4" translatesAutoresizingMaskIntoConstraints="NO" id="Pvs-4f-wGr">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Pvs-4f-wGr" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-59" id="QBl-km-dHC"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Pvs-4f-wGr" secondAttribute="bottom" constant="-43" id="lzl-j4-FR9"/>
-                            <constraint firstItem="Pvs-4f-wGr" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="2.66412" id="qlY-Ye-iVV"/>
-                            <constraint firstItem="Pvs-4f-wGr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xMM-qf-NYy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pvs-4f-wGr" secondAttribute="trailing" id="0ti-xT-zUX"/>
+                            <constraint firstItem="Pvs-4f-wGr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4kN-3R-b5c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pvs-4f-wGr" secondAttribute="bottom" id="OWs-Fj-YeE"/>
+                            <constraint firstItem="Pvs-4f-wGr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="d3f-xB-eLB"/>
+                            <constraint firstItem="Pvs-4f-wGr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eoN-Rw-Bz7"/>
+                            <constraint firstItem="Pvs-4f-wGr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pMB-nT-Fr9"/>
                         </constraints>
                     </view>
                 </viewController>

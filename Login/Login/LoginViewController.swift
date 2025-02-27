@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, NewUserDelegate {
         print("LoginViewController cargado")
 
         // Estilizar botones para evitar problemas de renderizado
-        loginButton.layer.cornerRadius = 10
+        loginButton.layer.cornerRadius = 25
     }
     
     // Acción para iniciar sesión

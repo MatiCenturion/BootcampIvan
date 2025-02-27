@@ -27,7 +27,7 @@ class NewUserViewController: UIViewController {
         tituloLabel.text = "Ingrese Nuevo Usuario"
         
         // Redondear los botones para evitar errores con CoreGraphics
-//        aceptarNewUserButton.layer.cornerRadius = 10
+        aceptarNewUserButton.layer.cornerRadius = 90
 //        cancelarNewUserButton.layer.cornerRadius = 10
     }
 

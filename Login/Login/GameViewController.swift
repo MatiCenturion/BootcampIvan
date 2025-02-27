@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var startButton: UIButton!
     
+    
     var username: String = ""  // Se debe asignar antes de cargar la vista
     var timer: Timer?
     var timeLeft = 30
@@ -27,10 +28,10 @@ class GameViewController: UIViewController {
         startButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
 
         // ✅ Asegurar que el nombre de usuario se muestra correctamente
-        userLabel.text = "Usuario: \(username.isEmpty ? "Invitado" : username)"
+        userLabel.text = "\(username.isEmpty ? "Invitado" : username)"
         
         // ✅ Inicializar etiquetas correctamente
-        timeLabel.text = "Tiempo: \(timeLeft)"
+        timeLabel.text = "\(timeLeft)"
         scoreLabel.text = "Puntos: \(score)"
         
         // Configurar gestos en la bola
@@ -43,7 +44,7 @@ class GameViewController: UIViewController {
         score = 0
         timeLeft = 30
         scoreLabel.text = "Puntos: \(score)"
-        timeLabel.text = "Tiempo: \(timeLeft)"
+        timeLabel.text = "\(timeLeft)"
         startButton.isEnabled = false
         
         // ✅ Iniciar el temporizador
@@ -54,7 +55,7 @@ class GameViewController: UIViewController {
     @objc func updateTime() {
         if timeLeft > 0 {
             timeLeft -= 1
-            timeLabel.text = "Tiempo: \(timeLeft)"
+            timeLabel.text = "\(timeLeft)"
         } else {
             timer?.invalidate()
             startButton.isEnabled = true
