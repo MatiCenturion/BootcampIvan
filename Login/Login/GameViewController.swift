@@ -27,10 +27,10 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         startButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
 
-        // ✅ Asegurar que el nombre de usuario se muestra correctamente
+        // Asegurar que el nombre de usuario se muestra correctamente
         userLabel.text = "\(username.isEmpty ? "Invitado" : username)"
         
-        // ✅ Inicializar etiquetas correctamente
+        // Inicializar etiquetas correctamente
         timeLabel.text = "\(timeLeft)"
         scoreLabel.text = "Puntos: \(score)"
         
@@ -47,7 +47,7 @@ class GameViewController: UIViewController {
         timeLabel.text = "\(timeLeft)"
         startButton.isEnabled = false
         
-        // ✅ Iniciar el temporizador
+        // Iniciar el temporizador
         timer?.invalidate()  // Detiene cualquier temporizador previo
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
