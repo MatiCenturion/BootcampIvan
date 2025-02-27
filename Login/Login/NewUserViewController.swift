@@ -6,11 +6,59 @@
 //
 
 import UIKit
-
-// Protocolo para delegar la acción de agregar un nuevo usuario
-protocol NewUserDelegate: AnyObject {
-    func didAddNewUser(username: String, password: String)
+class NewUserViewController: UIViewController {
+    
+    @IBOutlet weak var aceptarNewUserButton: UIButton!
+    @IBOutlet weak var cancelarNewUserButton: UIButton!
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var newUserTextField: UITextField!
+    @IBOutlet weak var tituloLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Configuración adicional si es necesaria
+    }
+    
+    @IBAction func aceptarNewUserButtonTapped(_ sender: UIButton) {
+        guard let username = newUserTextField.text, !username.isEmpty,
+              let password = newPasswordTextField.text, !password.isEmpty else {
+            // Mostrar un mensaje de error si los campos están vacíos
+            print("Por favor, completa todos los campos.")
+            return
+        }
+        
+        // Guardar el usuario en UserDefaults
+        saveUser(username: username, password: password)
+    }
+    
+    
+    func saveUser(username: String, password: String) {
+        // Crear un diccionario con los datos del usuario
+        let userData: [String: String] = [
+            "username": username,
+            "password": password
+        ]
+        
+        // Guardar el diccionario en UserDefaults
+        UserDefaults.standard.set(userData, forKey: "userData")
+        
+        // Guardar el nombre del usuario por separado (opcional)
+        UserDefaults.standard.set(username, forKey: "username")
+        
+        print("Usuario guardado correctamente.")
+    }
+    
+    
+    @IBAction func cancelarNewUserButtonTapped(_ sender: UIButton) {
+        // Limpiar los campos o realizar alguna acción al cancelar
+        newUserTextField.text = ""
+        newPasswordTextField.text = ""
+    }
 }
+
+
+/*
+import UIKit
 
 class NewUserViewController: UIViewController {
     
@@ -20,39 +68,43 @@ class NewUserViewController: UIViewController {
     @IBOutlet weak var newUserTextField: UITextField!
     @IBOutlet weak var tituloLabel: UILabel!
     
-    weak var delegate: NewUserDelegate? // Referencia al delegado
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tituloLabel.text = "Ingrese Nuevo Usuario"
-        
-        // Redondear los botones para evitar errores con CoreGraphics
-        aceptarNewUserButton.layer.cornerRadius = 90
-//        cancelarNewUserButton.layer.cornerRadius = 10
+        // Configuración adicional si es necesaria
     }
-
-    @IBAction func aceptarNewUser(_ sender: UIButton) {
-        guard let newUser = newUserTextField.text, !newUser.isEmpty,
-              let newPassword = newPasswordTextField.text, !newPassword.isEmpty else {
-            showAlert(message: "Debe ingresar usuario y contraseña.")
+    
+    @IBAction func aceptarNewUserButtonTapped(_ sender: UIButton) {
+        guard let username = newUserTextField.text, !username.isEmpty,
+              let password = newPasswordTextField.text, !password.isEmpty else {
+            // Mostrar un mensaje de error si los campos están vacíos
+            print("Por favor, completa todos los campos.")
             return
         }
         
-        // Notificar al delegado que se agregó un nuevo usuario
-        delegate?.didAddNewUser(username: newUser, password: newPassword)
-        self.dismiss(animated: true, completion: nil)
+        // Guardar el usuario en UserDefaults
+        saveUser(username: username, password: password)
     }
     
-    @IBAction func cancelarNewUser(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    func saveUser(username: String, password: String) {
+        // Crear un diccionario con los datos del usuario
+        let userData: [String: String] = [
+            "username": username,
+            "password": password
+        ]
+        
+        // Guardar el diccionario en UserDefaults
+        UserDefaults.standard.set(userData, forKey: "userData")
+        
+        // Guardar el nombre del usuario por separado (opcional)
+        UserDefaults.standard.set(username, forKey: "username")
+        
+        // Imprimir el nombre del usuario guardado
+        print("Usuario guardado correctamente. Nombre de usuario: \(username)")
     }
     
-    // Método auxiliar para mostrar alertas
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+    @IBAction func cancelarNewUserButtonTapped(_ sender: UIButton) {
+        // Limpiar los campos o realizar alguna acción al cancelar
+        newUserTextField.text = ""
+        newPasswordTextField.text = ""
     }
-}
-
-
+}*/

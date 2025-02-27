@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeID2" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                         <connections>
-                                            <action selector="actionLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zmE-sW-RI4"/>
+                                            <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uge-5E-lRB"/>
+                                            <action selector="olvidoContraseniaButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6OI-kn-Iyg"/>
                                             <segue destination="IBW-0Q-Obm" kind="show" id="byO-rD-COZ"/>
                                         </connections>
                                     </button>
@@ -580,11 +581,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Cancelar"/>
+                                        <connections>
+                                            <action selector="cancelarNewUser:" destination="9uG-N5-X9I" eventType="touchUpInside" id="mfH-fH-19O"/>
+                                            <action selector="cancelarNewUserButtonTapped:" destination="9uG-N5-X9I" eventType="touchUpInside" id="lze-Dn-eJQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chy-PH-F7t">
                                         <rect key="frame" x="121.66666666666666" y="0.0" width="91.666666666666657" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Aceptar"/>
+                                        <connections>
+                                            <action selector="aceptarNewUserButtonTapped:" destination="9uG-N5-X9I" eventType="touchUpInside" id="v23-zD-bnY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -607,8 +615,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZT4-I2-QAO"/>
                     <connections>
-                        <outlet property="aceptarNewUserButton" destination="chy-PH-F7t" id="tDB-ws-EoX"/>
-                        <outlet property="cancelarNewUserButton" destination="Z3P-8O-Cw8" id="l7C-F5-wU9"/>
+                        <outlet property="aceptarNewUserButton" destination="chy-PH-F7t" id="gHP-wc-Tef"/>
+                        <outlet property="cancelarNewUserButton" destination="Z3P-8O-Cw8" id="RvT-6E-Ipd"/>
                         <outlet property="newPasswordTextField" destination="O1S-dS-j0c" id="YFh-Fo-ikG"/>
                         <outlet property="newUserTextField" destination="Dzg-NX-P1J" id="uKS-6G-f3a"/>
                         <outlet property="tituloLabel" destination="D1x-JI-2tE" id="2sy-2Q-iF3"/>
