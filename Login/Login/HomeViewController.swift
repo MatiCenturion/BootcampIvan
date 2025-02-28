@@ -10,13 +10,11 @@ import UIKit
 class HomeViewController: UIViewController {
     var username: String?
 
-    @IBOutlet weak var backButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.addTarget(self, action: #selector(goToLogin), for: .touchUpInside) // Asigna la acción al botón
     }
-
+/*
     @IBAction func jugarButtonTapped(_ sender: UIButton) {
         goToGame()
     }
@@ -30,7 +28,7 @@ class HomeViewController: UIViewController {
             print("Error: No se pudo instanciar GameViewController")
         }
     }
-
+*/
     @objc func goToLogin() {
         dismiss(animated: true, completion: nil) // Cierra la pantalla actual y vuelve a LoginViewController
     }

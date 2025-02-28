@@ -31,7 +31,6 @@ class LoginViewController: UIViewController {
         if checkCredentials(username: username, password: password) {
             print("Inicio de sesión exitoso.")
             // Navegar a HomeViewController
-            navigateToHomeViewController()
         } else {
             print("Credenciales incorrectas.")
             // Mostrar un mensaje de error al usuario
@@ -51,15 +50,7 @@ class LoginViewController: UIViewController {
         return false
     }
     
-    private func navigateToHomeViewController() {
-        // Asegúrate de que el identificador "HomeViewController" coincida con el que tienes en tu Storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let homeViewController = storyboard.instantiateViewController(withIdentifier: "homeID") as? HomeViewController {
-            // Puedes pasar datos a HomeViewController si es necesario
-            homeViewController.modalPresentationStyle = .fullScreen
-            self.present(homeViewController, animated: true, completion: nil)
-        }
-    }
+
     
     private func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)

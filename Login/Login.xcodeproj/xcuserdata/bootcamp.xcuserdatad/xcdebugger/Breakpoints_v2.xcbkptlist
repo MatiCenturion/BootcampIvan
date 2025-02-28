@@ -14,8 +14,8 @@
             filePath = "Login/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "olvidoContraseniaButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
