@@ -276,7 +276,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Aceptar"/>
                                         <connections>
-                                            <action selector="aceptarPasswordButtonTapped:" destination="hfa-nO-QAe" eventType="touchUpInside" id="Nsl-Sq-Fiy"/>
+                                            <action selector="aceptarPasswordTapped:" destination="hfa-nO-QAe" eventType="touchUpInside" id="Hs2-zf-R3N"/>
                                         </connections>
                                     </button>
                                 </subviews>
