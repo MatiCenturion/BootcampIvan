@@ -19,22 +19,20 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var startButton: UIButton!
     
-    var username: String = ""  // Se debe asignar antes de cargar la vista
+    var username: String = ""
     var timer: Timer?
-    var moveTimer: Timer? // Timer para mover la bola automáticamente
+    var moveTimer: Timer?
     var timeLeft = 30
     var score = 0
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         startButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(cancelGame), for: .touchUpInside)
         
         if let userData = UserDefaults.standard.dictionary(forKey: "userData") as? [String: String] {
-            let nombre = userData["nombre"] ?? "Usuario"
-            userLabel.text = nombre
-        } else {
-            userLabel.text = "Usuario"
+            username = userData["nombre"] ?? "Usuario"
+            userLabel.text = username
         }
         
         timeLabel.text = "\(timeLeft)"
@@ -42,8 +40,6 @@ class GameViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ballTapped))
         ballView.addGestureRecognizer(tapGesture)
-        
-        // **Deshabilitar la interacción de la bola al inicio**
         ballView.isUserInteractionEnabled = false
     }
     
@@ -53,15 +49,11 @@ class GameViewController: UIViewController {
         scoreLabel.text = "Puntos: \(score)"
         timeLabel.text = "\(timeLeft)"
         startButton.isEnabled = false
-        
-        // **Habilitar la interacción con la bola**
         ballView.isUserInteractionEnabled = true
         
-        // Iniciar temporizador para el tiempo del juego
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
-        // **Iniciar temporizador para mover la bola automáticamente cada 0.5 segundos**
         moveTimer?.invalidate()
         moveTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(moveBall), userInfo: nil, repeats: true)
     }
@@ -72,13 +64,12 @@ class GameViewController: UIViewController {
             timeLabel.text = "\(timeLeft)"
         } else {
             timer?.invalidate()
-            moveTimer?.invalidate() // Detener el movimiento de la bola al finalizar el juego
+            moveTimer?.invalidate()
             startButton.isEnabled = true
-            
-            // **Deshabilitar la interacción con la bola**
             ballView.isUserInteractionEnabled = false
             
-            showGameOverAlert()
+            let isTop5 = saveScore()
+            showGameOverAlert(isTop5: isTop5)
         }
     }
     
@@ -95,21 +86,55 @@ class GameViewController: UIViewController {
         let randomX = CGFloat.random(in: 0...maxX)
         let randomY = CGFloat.random(in: 0...maxY)
         
-        UIView.animate(withDuration: 0.3) { // Animación para que se vea más fluido
+        UIView.animate(withDuration: 0.3) {
             self.ballView.frame.origin = CGPoint(x: randomX, y: randomY)
         }
     }
     
-    func showGameOverAlert() {
-        let alert = UIAlertController(title: "¡Juego terminado!", message: "Puntos: \(score)", preferredStyle: .alert)
+    func showGameOverAlert(isTop5: Bool) {
+        var topScores = UserDefaults.standard.array(forKey: "topScores") as? [[String: Any]] ?? []
+        
+        topScores.sort { ($0["score"] as? Int ?? 0) > ($1["score"] as? Int ?? 0) }
+        
+        var message = isTop5 ? "🎉 ¡Felicidades! Entraste al Top 5 🎉\n\n" : "😔 La próxima será...\n\n"
+        message += "🏆 Top 5 Puntajes:\n"
+        
+        for (index, entry) in topScores.prefix(5).enumerated() {
+            let user = entry["user"] as? String ?? "Usuario"
+            let score = entry["score"] as? Int ?? 0
+            message += "\(index + 1). \(user): \(score) puntos\n"
+        }
+        
+        let alert = UIAlertController(title: "¡Juego terminado!", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
     @objc func cancelGame() {
-        timer?.invalidate() // Detener el temporizador del tiempo de juego
-        moveTimer?.invalidate() // Detener el movimiento de la bola
+        timer?.invalidate()
+        moveTimer?.invalidate()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func saveScore() -> Bool {
+        var topScores = UserDefaults.standard.array(forKey: "topScores") as? [[String: Any]] ?? []
         
-        dismiss(animated: true, completion: nil) // Cierra la pantalla y regresa a HomeViewController
+        if let existingIndex = topScores.firstIndex(where: { $0["user"] as? String == username }) {
+            if let existingScore = topScores[existingIndex]["score"] as? Int, score > existingScore {
+                topScores[existingIndex]["score"] = score
+            }
+        } else {
+            topScores.append(["user": username, "score": score])
+        }
+        
+        topScores.sort { ($0["score"] as? Int ?? 0) > ($1["score"] as? Int ?? 0) }
+        
+        if topScores.count > 5 {
+            topScores = Array(topScores.prefix(5))
+        }
+        
+        UserDefaults.standard.setValue(topScores, forKey: "topScores")
+        return topScores.contains { ($0["user"] as? String == username) }
     }
 }
+
