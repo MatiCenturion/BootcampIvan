@@ -43,7 +43,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4Ca-1C-JNo">
                                 <rect key="frame" x="90" y="182" width="222" height="84"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="usuario1" borderStyle="roundedRect" placeholder="User" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWX-9h-91D">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWX-9h-91D">
                                         <rect key="frame" x="0.0" y="0.0" width="222" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
@@ -51,7 +51,7 @@
                                             <action selector="userTextField:" destination="fGb-cW-JJU" eventType="editingDidEnd" id="Qpo-Ov-urM"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password1" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wV1-Zc-Jsl">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wV1-Zc-Jsl">
                                         <rect key="frame" x="0.0" y="50" width="222" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
@@ -150,7 +150,7 @@
                                 <rect key="frame" x="0.0" y="106" width="402" height="734"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f06-Lp-Nq2">
-                                <rect key="frame" x="85.333333333333314" y="156" width="231.33333333333337" height="68.333333333333314"/>
+                                <rect key="frame" x="85.333333333333329" y="156" width="231.33333333333337" height="68.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduzca su correo o usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQ8-x1-xba">
                                         <rect key="frame" x="0.0" y="0.0" width="231.33333333333334" height="20.333333333333332"/>
@@ -166,20 +166,22 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXC-3g-zcO">
-                                <rect key="frame" x="165.66666666666663" y="244.00000000000003" width="70.666666666666686" height="34.333333333333343"/>
+                                <rect key="frame" x="165.66666666666666" y="244.00000000000003" width="70.666666666666657" height="34.333333333333343"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Enviar"/>
                                 <connections>
+                                    <action selector="enviarButtonTapped:" destination="edh-cE-YGA" eventType="touchUpInside" id="HsP-nj-aEC"/>
                                     <segue destination="hfa-nO-QAe" kind="show" id="dFm-Zp-64q"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVy-Da-vym">
-                                <rect key="frame" x="26.666666666666629" y="319" width="349" height="20.333333333333314"/>
+                                <rect key="frame" x="26.666666666666657" y="319" width="349" height="20.333333333333314"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14944125843696854" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="349" id="zWO-JP-918"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -204,8 +206,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="M7Z-NQ-82j"/>
                     <connections>
+                        <outlet property="emailTextField" destination="8Xs-Dl-phB" id="NHP-tc-Ei6"/>
                         <outlet property="enviarButton" destination="AXC-3g-zcO" id="Fco-A7-eSQ"/>
-                        <outlet property="labelEmail" destination="FVy-Da-vym" id="e2g-wN-2eg"/>
+                        <outlet property="labelEmail" destination="FVy-Da-vym" id="dKd-bn-llR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHG-fI-F0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -264,6 +267,7 @@
                                         <buttonConfiguration key="configuration" style="tinted" title="Cancelar"/>
                                         <connections>
                                             <action selector="aceptarnewUser:" destination="yaF-kU-wV3" eventType="touchUpInside" id="15G-ib-9xR"/>
+                                            <action selector="cancelPasswordButtonTapped:" destination="hfa-nO-QAe" eventType="touchUpInside" id="2FK-J2-PBj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXb-JM-zbc">
@@ -271,6 +275,9 @@
                                         <color key="backgroundColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="0.17388957536139457" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Aceptar"/>
+                                        <connections>
+                                            <action selector="aceptarPasswordButtonTapped:" destination="hfa-nO-QAe" eventType="touchUpInside" id="Nsl-Sq-Fiy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -297,7 +304,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="S9J-Lf-GqZ"/>
                     <connections>
-                        <outlet property="AcpetarPasswordButton" destination="yXb-JM-zbc" id="YWx-Ac-AKM"/>
+                        <outlet property="aceptarPasswordButton" destination="yXb-JM-zbc" id="Gzu-rW-e6D"/>
                         <outlet property="cancelPasswordButton" destination="RRF-gU-kH8" id="N2G-b4-2vW"/>
                         <outlet property="confirmPasswordTextField" destination="aRd-q0-ScR" id="GBF-BQ-I39"/>
                         <outlet property="newPasswordTextField" destination="Jib-Sc-LCu" id="nhS-K7-GbM"/>
@@ -713,6 +720,9 @@
         <image name="hallowenn" width="1332" height="850"/>
         <image name="restart" catalog="system" width="117" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
