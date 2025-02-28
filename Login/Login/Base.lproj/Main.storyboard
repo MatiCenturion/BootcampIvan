@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="homeID2" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginID" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,9 +306,19 @@
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TO1-c2-U8G">
                                 <rect key="frame" x="0.0" y="106" width="402" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAv-ie-Meu">
+                                        <rect key="frame" x="8.0000000000000036" y="0.0" width="57.333333333333343" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Salir"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.87450981139999995" green="0.87450987099999999" blue="0.87450981139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="7Kn-fg-nKJ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XAv-ie-Meu" secondAttribute="trailing" constant="20" symbolic="YES" id="Ig2-Ag-HWT"/>
+                                    <constraint firstItem="XAv-ie-Meu" firstAttribute="leading" secondItem="TO1-c2-U8G" secondAttribute="leading" constant="8" id="OKJ-MV-uZ7"/>
+                                    <constraint firstItem="XAv-ie-Meu" firstAttribute="top" secondItem="TO1-c2-U8G" secondAttribute="top" id="YLA-da-UUL"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MENU" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1P-az-x6W">
@@ -346,6 +356,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="94U-Bp-qdu"/>
+                    <connections>
+                        <outlet property="backButton" destination="XAv-ie-Meu" id="JuA-IN-5a6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVd-9i-hni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -523,6 +536,7 @@
                     <navigationItem key="navigationItem" id="4XB-uz-iIU"/>
                     <connections>
                         <outlet property="ballView" destination="6em-3Y-C6P" id="7Vt-90-rdr"/>
+                        <outlet property="cancelButton" destination="q7W-KZ-lyh" id="bpa-h0-TYC"/>
                         <outlet property="gameView" destination="BXG-qZ-cig" id="MQl-MT-ZK6"/>
                         <outlet property="scoreLabel" destination="x6m-9K-CwD" id="rM6-pq-SaV"/>
                         <outlet property="startButton" destination="W5x-DD-1WI" id="Uam-jB-BSe"/>
@@ -639,6 +653,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ncA-eR-VCh">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eAL-zf-4Zc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3p7-wc-5QJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="udn-Wc-f6D">
@@ -650,7 +665,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5Pp-FX-43l"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eAL-zf-4Zc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="284" y="-3"/>
         </scene>

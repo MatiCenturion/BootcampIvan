@@ -8,10 +8,13 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var username: String?  // ← Agregamos esta variable
-    
+    var username: String?
+
+    @IBOutlet weak var backButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        backButton.addTarget(self, action: #selector(goToLogin), for: .touchUpInside) // Asigna la acción al botón
     }
 
     @IBAction func jugarButtonTapped(_ sender: UIButton) {
@@ -20,7 +23,7 @@ class HomeViewController: UIViewController {
 
     func goToGame() {
         if let gameVC = storyboard?.instantiateViewController(withIdentifier: "GameViewControllerID") as? GameViewController {
-            gameVC.username = username ?? "Invitado"  // ← Pasar el usuario autenticado
+            gameVC.username = username ?? "Invitado"
             gameVC.modalPresentationStyle = .fullScreen
             present(gameVC, animated: true, completion: nil)
         } else {
@@ -28,6 +31,10 @@ class HomeViewController: UIViewController {
         }
     }
 
+    @objc func goToLogin() {
+        dismiss(animated: true, completion: nil) // Cierra la pantalla actual y vuelve a LoginViewController
+    }
 }
+
 
 
