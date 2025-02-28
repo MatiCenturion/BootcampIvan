@@ -106,6 +106,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ktn-g3-K2C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6IC-fM-kFp"/>
+                            <constraint firstItem="4Ca-1C-JNo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7ke-wR-jBU"/>
                             <constraint firstItem="4Ca-1C-JNo" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.552239" id="DwV-ue-1cq"/>
                             <constraint firstItem="aQh-63-1wc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Eir-xE-rh8"/>
                             <constraint firstItem="aQh-63-1wc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Okz-kB-vpW"/>
@@ -258,7 +259,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lE7-RZ-Iwj">
-                                <rect key="frame" x="102" y="380" width="198.33333333333337" height="34.333333333333314"/>
+                                <rect key="frame" x="102.00000000000001" y="380" width="198.33333333333337" height="34.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRF-gU-kH8">
                                         <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="34.333333333333336"/>
@@ -326,7 +327,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hallowen" translatesAutoresizingMaskIntoConstraints="NO" id="esp-Jv-Dgd">
                                 <rect key="frame" x="0.0" y="106" width="402" height="734"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Smg-4m-AoT">
+                            <stackView opaque="NO" alpha="0.5" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Smg-4m-AoT" userLabel="Game">
                                 <rect key="frame" x="83.666666666666686" y="702" width="235" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="HwT-Pp-0Ns">
@@ -340,34 +341,39 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZNJ-Mw-cDm">
-                                <rect key="frame" x="81" y="128" width="240" height="60"/>
+                            <stackView opaque="NO" alpha="0.5" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZNJ-Mw-cDm" userLabel="verPuntaje">
+                                <rect key="frame" x="81" y="128" width="240" height="73.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pfR-dt-1ht">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="105"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="73.333333333333329"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.26364874269999999" green="0.69859532849999995" blue="1" alpha="0.42913839120000002" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Mejores Jugadores"/>
                                     </button>
                                 </subviews>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cf6-Hk-Sgl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Smg-4m-AoT" firstAttribute="height" secondItem="CzF-sF-os0" secondAttribute="height" multiplier="0.117849" id="566-X9-Vmw"/>
+                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="centerX" secondItem="cf6-Hk-Sgl" secondAttribute="centerX" id="6BD-s9-gqM"/>
                             <constraint firstItem="ZNJ-Mw-cDm" firstAttribute="top" secondItem="cf6-Hk-Sgl" secondAttribute="top" constant="22" id="8Me-hA-WzO"/>
                             <constraint firstItem="Smg-4m-AoT" firstAttribute="centerX" secondItem="CzF-sF-os0" secondAttribute="centerX" id="9va-bt-fqk"/>
-                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="leading" secondItem="cf6-Hk-Sgl" secondAttribute="leading" id="Cg2-EA-IuT"/>
-                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="top" secondItem="cf6-Hk-Sgl" secondAttribute="top" id="M7m-ua-Jcn"/>
+                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="leading" secondItem="cf6-Hk-Sgl" secondAttribute="leading" id="ASM-IR-gGW"/>
+                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="height" secondItem="cf6-Hk-Sgl" secondAttribute="height" id="Ce3-ox-rLL"/>
                             <constraint firstItem="ZNJ-Mw-cDm" firstAttribute="centerX" secondItem="CzF-sF-os0" secondAttribute="centerX" id="OpR-QQ-pyC"/>
-                            <constraint firstItem="ZNJ-Mw-cDm" firstAttribute="height" secondItem="cf6-Hk-Sgl" secondAttribute="height" multiplier="0.0817439" id="Ple-Ma-9Js"/>
+                            <constraint firstItem="ZNJ-Mw-cDm" firstAttribute="height" secondItem="cf6-Hk-Sgl" secondAttribute="height" multiplier="0.1" id="Ple-Ma-9Js"/>
                             <constraint firstItem="Smg-4m-AoT" firstAttribute="width" secondItem="CzF-sF-os0" secondAttribute="width" multiplier="0.584577" id="VEw-Xh-d1K"/>
-                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="trailing" secondItem="cf6-Hk-Sgl" secondAttribute="trailing" id="aZJ-YY-rhw"/>
-                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="bottom" secondItem="cf6-Hk-Sgl" secondAttribute="bottom" id="dz5-KO-1Xk"/>
+                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="width" secondItem="cf6-Hk-Sgl" secondAttribute="width" id="ZWb-3k-edI"/>
+                            <constraint firstItem="cf6-Hk-Sgl" firstAttribute="bottom" secondItem="esp-Jv-Dgd" secondAttribute="bottom" id="dfF-Q2-dn9"/>
                             <constraint firstItem="cf6-Hk-Sgl" firstAttribute="bottom" secondItem="Smg-4m-AoT" secondAttribute="bottom" constant="35" id="fRs-MG-kay"/>
+                            <constraint firstItem="cf6-Hk-Sgl" firstAttribute="trailing" secondItem="esp-Jv-Dgd" secondAttribute="trailing" id="jVy-Eg-qcm"/>
+                            <constraint firstItem="esp-Jv-Dgd" firstAttribute="top" secondItem="cf6-Hk-Sgl" secondAttribute="top" id="sQ7-yA-oO9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="94U-Bp-qdu"/>
@@ -620,7 +626,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9WT-KO-vr4">
-                                <rect key="frame" x="94.333333333333314" y="511.33333333333331" width="213.33333333333337" height="34.333333333333314"/>
+                                <rect key="frame" x="94.333333333333329" y="511.33333333333331" width="213.33333333333337" height="34.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3P-8O-Cw8">
                                         <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="34.333333333333336"/>

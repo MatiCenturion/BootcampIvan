@@ -4,23 +4,6 @@
 //
 //  Created by bootcamp on 2025-02-25.
 //
-/*
-import UIKit
-
-class HomeViewController: UIViewController {
-    var username: String?
-
-    @IBOutlet weak var verPuntajeButton: UIButton!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    @objc func goToLogin() {
-        dismiss(animated: true, completion: nil) // Cierra la pantalla actual y vuelve a LoginViewController
-    }
-}
-*/
 
 
 import UIKit
