@@ -61,7 +61,7 @@ class GameDadosViewController: UIViewController {
         }) { _ in
             self.resultadoLabel.text = resultado
             self.resultadoLabel.textColor = nuevoColor
-            self.resultadoLabel.font = UIFont(name: "MarkerFelt-Wide", size: 28) // Nueva fuente animada
+            self.resultadoLabel.font = UIFont(name: "MarkerFelt-Wide", size: 36) // Nueva fuente animada
 
             UIView.animate(withDuration: 0.3, delay: 0.1, options: [.curveEaseOut], animations: {
                 self.resultadoLabel.alpha = 1
