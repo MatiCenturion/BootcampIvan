@@ -10,7 +10,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameCatchMeViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
