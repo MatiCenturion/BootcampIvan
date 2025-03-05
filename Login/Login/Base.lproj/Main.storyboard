@@ -456,6 +456,28 @@
                     <view key="view" contentMode="scaleToFill" id="Yiw-rf-oOP">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red_joker" translatesAutoresizingMaskIntoConstraints="NO" id="Tkl-Qb-pgk">
+                                <rect key="frame" x="24" y="261" width="64" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red_joker" translatesAutoresizingMaskIntoConstraints="NO" id="DIx-6q-AjF">
+                                <rect key="frame" x="96" y="261" width="64" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red_joker" translatesAutoresizingMaskIntoConstraints="NO" id="1AY-Hc-PYV">
+                                <rect key="frame" x="168" y="261" width="64" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red_joker" translatesAutoresizingMaskIntoConstraints="NO" id="TtT-eB-Fsm">
+                                <rect key="frame" x="240" y="261" width="64" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red_joker" translatesAutoresizingMaskIntoConstraints="NO" id="zlH-IO-s6l">
+                                <rect key="frame" x="314" y="261" width="64" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="57P-VN-Joi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -463,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yS7-Wq-C24" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2693" y="-764"/>
+            <point key="canvasLocation" x="2692.5373134328356" y="-764.07322654462234"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Rjv-gU-AfA">
@@ -895,6 +917,7 @@
         <image name="fondooo" width="1080" height="1920"/>
         <image name="hallowen" width="1080" height="1920"/>
         <image name="hallowenn" width="1332" height="850"/>
+        <image name="red_joker" width="500" height="726"/>
         <image name="restart" catalog="system" width="117" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="groupTableViewBackgroundColor">
