@@ -28,10 +28,10 @@ class PokemonManager {
             }
         }
     }
-
-
-
-   
+    
+    
+    
+    
     // Función para obtener la descripción del Pokémon
     func fetchPokemonDescription(speciesURL: String, completion: @escaping (String?) -> Void) {
         AF.request(speciesURL).responseDecodable(of: PokemonSpecies.self) { response in
@@ -49,7 +49,7 @@ class PokemonManager {
             }
         }
     }
-
+    
     
     func fetchPokemonList(completion: @escaping ([String]?) -> Void) {
         let urlString = "https://pokeapi.co/api/v2/pokemon?limit=50" // Traerá 50 Pokémon
@@ -57,7 +57,7 @@ class PokemonManager {
             completion(nil)
             return
         }
-
+        
         AF.request(url).responseDecodable(of: PokemonListResponse.self) { response in
             switch response.result {
             case .success(let data):
@@ -69,7 +69,7 @@ class PokemonManager {
         }
     }
     
-
+    
     
     func fetchPokemonDataByNumber(pokemonNumber: Int, completion: @escaping (Pokemon?, String?) -> Void) {
         // Formamos la URL usando el número del Pokémon
@@ -123,7 +123,7 @@ class PokemonManager {
         
         task.resume()
     }
-
+    
     func extractPokemonNumber(from urlString: String) -> Int? {
         let components = urlString.split(separator: "/")
         // El número del Pokémon está en la penúltima parte de la URL
@@ -133,7 +133,7 @@ class PokemonManager {
         }
         return nil
     }
-
-
+    
+    
 }
 

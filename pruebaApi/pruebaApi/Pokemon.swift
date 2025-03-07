@@ -14,7 +14,7 @@ struct Pokemon: Codable {
     let types: [PokemonTypeEntry]
     let species: PokemonSpeciesReference // Cambiar a la estructura correcta
 }
-    
+
 
 // Estructura para obtener la referencia a la especie (contiene la URL)
 struct PokemonSpeciesReference: Codable {
@@ -58,9 +58,9 @@ struct Language: Codable {
     let name: String
 }
 /*
-struct PokemonListResponse: Codable { // Cambié de 'Decodable' a 'Codable'
-    let results: [PokemonResult]
-}*/
+ struct PokemonListResponse: Codable { // Cambié de 'Decodable' a 'Codable'
+ let results: [PokemonResult]
+ }*/
 struct PokemonListResponse: Decodable {
     let results: [PokemonResult]
 }
@@ -70,7 +70,7 @@ struct PokemonResult: Decodable {
     let url: String // Agregado para extraer el número
 }
 /*
-
-struct PokemonResult: Codable {
-    let name: String
-}*/
+ 
+ struct PokemonResult: Codable {
+ let name: String
+ }*/
