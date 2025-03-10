@@ -4,12 +4,15 @@
 //
 //  Created by bootcamp on 2025-03-10.
 //
-
+/*
 import UIKit
 import Kingfisher
 
 class ViewController: UIViewController {
     
+    
+    @IBOutlet weak var pokemonSearchBar: UISearchBar!
+    //    @IBOutlet weak var pokemonTextField: UITextField!
     @IBOutlet weak var pokemonTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var pokemonImageView: UIImageView!
@@ -220,5 +223,187 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
             selectPokemonPickerView.reloadAllComponents()
         }
         return true
+    }
+}*/
+
+
+import UIKit
+import Kingfisher
+
+class ViewController: UIViewController {
+    
+    @IBOutlet weak var pokemonSearchBar: UISearchBar!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var pokemonImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var searchMethodTextField: UITextField!
+    @IBOutlet weak var selectPokemonPickerView: UIPickerView!
+    
+    let searchMethodPicker = UIPickerView()
+    var pokemonList: [String] = []
+    var filteredPokemonList: [String] = []
+    let searchMethods = ["Nombre", "Número"]
+    let pokemonManager = PokemonManager()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        setupSearchMethodPicker()
+        
+        selectPokemonPickerView.delegate = self
+        selectPokemonPickerView.dataSource = self
+        
+        searchMethodTextField.delegate = self
+        pokemonSearchBar.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        
+        pokemonManager.fetchPokemonList { [weak self] pokemonNames in
+            guard let self = self, let names = pokemonNames else { return }
+            DispatchQueue.main.async {
+                self.pokemonList = names
+                self.filteredPokemonList = names
+                self.selectPokemonPickerView.reloadAllComponents()
+            }
+        }
+    }
+    
+    private func setupSearchMethodPicker() {
+        searchMethodPicker.delegate = self
+        searchMethodPicker.dataSource = self
+        searchMethodTextField.inputView = searchMethodPicker
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Listo", style: .done, target: self, action: #selector(dismissPicker))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([flexibleSpace, doneButton], animated: true)
+        searchMethodTextField.inputAccessoryView = toolBar
+        
+        searchMethodTextField.text = searchMethods[0]
+    }
+    
+    @objc private func dismissPicker() {
+        view.endEditing(true)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func setupUI() {
+        nameLabel.text = ""
+        typeLabel.text = ""
+        descriptionLabel.text = ""
+        pokemonImageView.image = nil
+    }
+    
+    @IBAction func searchPokemon(_ sender: UIButton) {
+        guard !pokemonList.isEmpty else {
+            showAlert(message: "La lista de Pokémon aún no ha cargado.")
+            return
+        }
+        
+        if let searchMethod = searchMethodTextField.text {
+            if searchMethod == "Nombre" {
+                searchByName()
+            } else if searchMethod == "Número" {
+                searchByNumber()
+            }
+        }
+    }
+    
+    func searchByName() {
+        guard let pokemonName = pokemonSearchBar.text, !pokemonName.isEmpty else {
+            showAlert(message: "Por favor ingresa un nombre de Pokémon")
+            return
+        }
+        
+        pokemonManager.fetchPokemonData(pokemonName: pokemonName) { [weak self] pokemon, description in
+            guard let self = self, let pokemon = pokemon else {
+                self?.showAlert(message: "No se encontró el Pokémon")
+                return
+            }
+            DispatchQueue.main.async {
+                self.updateUI(with: pokemon, description: description)
+            }
+        }
+    }
+    
+    func searchByNumber() {
+        guard let pokemonNumberString = pokemonSearchBar.text, let pokemonNumber = Int(pokemonNumberString) else {
+            showAlert(message: "Por favor ingresa un número de Pokémon válido")
+            return
+        }
+        pokemonManager.fetchPokemonDataByNumber(pokemonNumber: pokemonNumber) { [weak self] pokemon, description in
+            guard let self = self, let pokemon = pokemon else {
+                self?.showAlert(message: "No se encontró el Pokémon")
+                return
+            }
+            DispatchQueue.main.async {
+                self.updateUI(with: pokemon, description: description)
+            }
+        }
+    }
+    
+    func updateUI(with pokemon: Pokemon, description: String?) {
+        nameLabel.text = pokemon.name.capitalized
+        typeLabel.text = "Tipo: \(pokemon.types.map { $0.type.name.capitalized }.joined(separator: ", "))"
+        descriptionLabel.text = description ?? "Descripción no disponible"
+        if let imageUrl = URL(string: pokemon.sprites.other.officialArtwork.frontDefault) {
+            pokemonImageView.kf.setImage(with: imageUrl)
+        }
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UISearchBarDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == searchMethodPicker {
+            return searchMethods.count
+        } else if pickerView == selectPokemonPickerView {
+            return filteredPokemonList.count
+        }
+        return 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == searchMethodPicker {
+            return searchMethods[row]
+        } else if pickerView == selectPokemonPickerView {
+            return filteredPokemonList[row]
+        }
+        return nil
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == searchMethodPicker {
+            searchMethodTextField.text = searchMethods[row]
+            pokemonSearchBar.text = ""
+        } else if pickerView == selectPokemonPickerView {
+            pokemonSearchBar.text = filteredPokemonList[row]
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredPokemonList = pokemonList
+        } else {
+            filteredPokemonList = pokemonList.filter { $0.lowercased().contains(searchText.lowercased()) }
+        }
+        selectPokemonPickerView.reloadAllComponents()
     }
 }

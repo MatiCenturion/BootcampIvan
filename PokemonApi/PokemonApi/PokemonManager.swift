@@ -51,7 +51,7 @@ class PokemonManager {
     
     // Obtiene la lista de 50 Pokémon
     func fetchPokemonList(completion: @escaping ([String]?) -> Void) {
-        let endpoint = "https://pokeapi.co/api/v2/pokemon?limit=50"
+        let endpoint = "https://pokeapi.co/api/v2/pokemon?limit=550"
         HTTPClient.request(
             endpoint: endpoint,
             method: .get,

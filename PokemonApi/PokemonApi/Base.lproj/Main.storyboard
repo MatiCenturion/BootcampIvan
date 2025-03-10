@@ -57,15 +57,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFD-Ir-nCN">
-                                <rect key="frame" x="0.0" y="114" width="393" height="162"/>
+                                <rect key="frame" x="0.0" y="132" width="393" height="144"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y5f-Db-pUz">
-                                <rect key="frame" x="27" y="72" width="325" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgt-sU-Wtq">
+                                <rect key="frame" x="15" y="73" width="349" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LAy-Lt-edQ"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -74,7 +76,7 @@
                         <outlet property="descriptionLabel" destination="6yz-9j-zZg" id="BTr-pZ-4DH"/>
                         <outlet property="nameLabel" destination="MNF-74-LyC" id="ibE-PY-aFg"/>
                         <outlet property="pokemonImageView" destination="LvR-eg-GYG" id="B7C-pF-FiF"/>
-                        <outlet property="pokemonTextField" destination="Y5f-Db-pUz" id="ECw-WW-NDN"/>
+                        <outlet property="pokemonSearchBar" destination="dgt-sU-Wtq" id="WMx-6S-byI"/>
                         <outlet property="searchButton" destination="OEs-ZI-Wr6" id="4rr-rO-ARG"/>
                         <outlet property="searchMethodTextField" destination="zoj-7c-t8l" id="7p5-zz-77u"/>
                         <outlet property="selectPokemonPickerView" destination="bFD-Ir-nCN" id="jxc-p4-wHw"/>
