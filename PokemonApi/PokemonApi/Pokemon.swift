@@ -145,4 +145,3 @@ struct HTTPClient {
         task.resume()
     }
 }
-

@@ -97,4 +97,3 @@ class PokemonManager {
         return nil
     }
 }
-
