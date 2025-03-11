@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgt-sU-Wtq">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="nombre/tipo/id" translatesAutoresizingMaskIntoConstraints="NO" id="dgt-sU-Wtq">
                                 <rect key="frame" x="15" y="73" width="349" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
