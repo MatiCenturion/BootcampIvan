@@ -5,29 +5,29 @@
 //  Created by bootcamp on 2025-03-10.
 //
 
-import Foundation // Importa Foundation para funcionalidades básicas
+import Foundation
 
 // Clase encargada de gestionar las solicitudes de datos de Pokémon desde la PokeAPI
 class PokemonManager {
     
     // Obtiene los datos de un Pokémon a partir de su nombre
     func fetchPokemonData(pokemonName: String, completion: @escaping (Pokemon?, String?) -> Void) {
-        let endpoint = "https://pokeapi.co/api/v2/pokemon/\(pokemonName.lowercased())" // Construye la URL usando el nombre en minúsculas
+        let endpoint = "https://pokeapi.co/api/v2/pokemon/\(pokemonName.lowercased())"
         
         HTTPClient.request(
-            endpoint: endpoint, // URL de la solicitud
-            method: .get, // Método HTTP GET
-            encoding: .json, // Se espera una respuesta en formato JSON
-            headers: nil, // No se agregan encabezados adicionales
-            onSuccess: { (pokemon: Pokemon) in // Maneja la respuesta exitosa parseándola a la estructura Pokemon
-                // Obtiene la descripción del Pokémon a partir de la URL de su especie
-                self.fetchPokemonDescription(speciesURL: pokemon.species.url, completion: { description in
-                    completion(pokemon, description) // Retorna los datos del Pokémon y su descripción
-                })
+            endpoint: endpoint,
+            method: .get,
+            encoding: .json,
+            headers: nil,
+            onSuccess: { [weak self] (pokemon: Pokemon) in
+                guard let self = self else { return }
+                self.fetchPokemonDescription(speciesURL: pokemon.species.url) { description in
+                    completion(pokemon, description)
+                }
             },
-            onFailure: { error in // Maneja el fallo de la solicitud
-                print("Error: \(error.message)") // Imprime el error en la consola
-                completion(nil, nil) // Retorna nil en caso de error
+            onFailure: { error in
+                print("Error: \(error.message)")
+                completion(nil, nil)
             }
         )
     }
@@ -35,93 +35,88 @@ class PokemonManager {
     // Obtiene la descripción del Pokémon desde la URL de su especie
     func fetchPokemonDescription(speciesURL: String, completion: @escaping (String?) -> Void) {
         HTTPClient.request(
-            endpoint: speciesURL, // URL de la especie del Pokémon
-            method: .get, // Método HTTP GET
-            encoding: .json, // Se espera JSON en la respuesta
-            headers: nil, // No se agregan encabezados adicionales
-            onSuccess: { (speciesData: PokemonSpecies) in // Maneja la respuesta exitosa parseándola a PokemonSpecies
-                // Busca la primera descripción en español o, de no existir, la primera disponible
-                if let descriptionEntry = speciesData.flavor_text_entries.first(where: { $0.language.name == "es" }) {
-                    completion(descriptionEntry.flavor_text) // Retorna la descripción en español
-                } else {
-                    completion(speciesData.flavor_text_entries.first?.flavor_text) // Retorna la primera descripción disponible
-                }
+            endpoint: speciesURL,
+            method: .get,
+            encoding: .json,
+            headers: nil,
+            onSuccess: { (speciesData: PokemonSpecies) in
+                let descriptionEntry = speciesData.flavor_text_entries.first(where: { $0.language.name == "es" }) ??
+                                       speciesData.flavor_text_entries.first
+                completion(descriptionEntry?.flavor_text)
             },
-            onFailure: { error in // Maneja el fallo de la solicitud
-                print("Error: \(error.message)") // Imprime el error en la consola
-                completion(nil) // Retorna nil en caso de error
+            onFailure: { error in
+                print("Error: \(error.message)")
+                completion(nil)
             }
         )
     }
     
     // Obtiene una lista de nombres de todos los Pokémon disponibles en la API
     func fetchPokemonList(completion: @escaping ([String]?) -> Void) {
-        let endpoint = "https://pokeapi.co/api/v2/pokemon?limit=10025" // URL que solicita la lista completa de Pokémon
+        let endpoint = "https://pokeapi.co/api/v2/pokemon?limit=10025"
         
         HTTPClient.request(
-            endpoint: endpoint, // URL de la solicitud
-            method: .get, // Método HTTP GET
-            encoding: .json, // Se espera una respuesta en JSON
-            headers: nil, // No se agregan encabezados adicionales
-            onSuccess: { (data: PokemonListResponse) in // Maneja la respuesta exitosa parseándola a PokemonListResponse
-                let pokemonNames = data.results.map { $0.name } // Extrae y mapea los nombres de cada Pokémon
-                completion(pokemonNames) // Retorna la lista de nombres
+            endpoint: endpoint,
+            method: .get,
+            encoding: .json,
+            headers: nil,
+            onSuccess: { (data: PokemonListResponse) in
+                let pokemonNames = data.results.map { $0.name }
+                completion(pokemonNames)
             },
-            onFailure: { error in // Maneja el fallo de la solicitud
-                completion(nil) // Retorna nil en caso de error
+            onFailure: { error in
+                completion(nil)
             }
         )
     }
     
     // Obtiene los datos de un Pokémon a partir de su número (ID)
     func fetchPokemonDataByNumber(pokemonNumber: Int, completion: @escaping (Pokemon?, String?) -> Void) {
-        let endpoint = "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)" // Construye la URL usando el número del Pokémon
+        let endpoint = "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)"
         
         HTTPClient.request(
-            endpoint: endpoint, // URL de la solicitud
-            method: .get, // Método HTTP GET
-            encoding: .json, // Se espera una respuesta en JSON
-            headers: nil, // No se agregan encabezados adicionales
-            onSuccess: { (pokemon: Pokemon) in // Maneja la respuesta exitosa parseándola a Pokemon
-                // Obtiene la descripción del Pokémon usando la URL de su especie
-                self.fetchPokemonDescription(speciesURL: pokemon.species.url, completion: { description in
-                    completion(pokemon, description) // Retorna los datos del Pokémon y su descripción
-                })
+            endpoint: endpoint,
+            method: .get,
+            encoding: .json,
+            headers: nil,
+            onSuccess: { [weak self] (pokemon: Pokemon) in
+                guard let self = self else { return }
+                self.fetchPokemonDescription(speciesURL: pokemon.species.url) { description in
+                    completion(pokemon, description)
+                }
             },
-            onFailure: { error in // Maneja el fallo de la solicitud
-                print("Error: \(error.message)") // Imprime el error en la consola
-                completion(nil, "Error: \(error.message)") // Retorna nil junto con el mensaje de error
+            onFailure: { error in
+                print("Error: \(error.message)")
+                completion(nil, "Error: \(error.message)")
             }
         )
     }
     
     // Extrae el número de un Pokémon a partir de su URL
     func extractPokemonNumber(from urlString: String) -> Int? {
-        let components = urlString.split(separator: "/") // Separa la URL en componentes usando "/" como delimitador
-        
-        if let numberString = components.dropLast().last, // Obtiene la penúltima parte que corresponde al número
-           let number = Int(numberString) { // Intenta convertirla a entero
-            return number // Retorna el número extraído
+        let components = urlString.split(separator: "/")
+        if let numberString = components.dropLast().last, let number = Int(numberString) {
+            return number
         }
-        return nil // Retorna nil si no se pudo extraer el número
+        return nil
     }
     
-    // NUEVA FUNCIÓN: Obtiene una lista de nombres de Pokémon filtrados por tipo
+    // Obtiene una lista de nombres de Pokémon filtrados por tipo
     func fetchPokemonListByType(type: String, completion: @escaping ([String]?) -> Void) {
-        let endpoint = "https://pokeapi.co/api/v2/type/\(type)" // Construye la URL usando el tipo en inglés
+        let endpoint = "https://pokeapi.co/api/v2/type/\(type)"
         
         HTTPClient.request(
-            endpoint: endpoint, // URL de la solicitud
-            method: .get, // Método HTTP GET
-            encoding: .json, // Se espera una respuesta en JSON
-            headers: nil, // No se agregan encabezados adicionales
-            onSuccess: { (response: PokemonTypeResponse) in // Maneja la respuesta exitosa parseándola a PokemonTypeResponse
-                let pokemonNames = response.pokemon.map { $0.pokemon.name } // Extrae los nombres de los Pokémon del tipo
-                completion(pokemonNames) // Retorna la lista de nombres
+            endpoint: endpoint,
+            method: .get,
+            encoding: .json,
+            headers: nil,
+            onSuccess: { (response: PokemonTypeResponse) in
+                let pokemonNames = response.pokemon.map { $0.pokemon.name }
+                completion(pokemonNames)
             },
-            onFailure: { error in // Maneja el fallo de la solicitud
-                print("Error al obtener Pokémon por tipo: \(error.message)") // Imprime el error en la consola
-                completion(nil) // Retorna nil en caso de error
+            onFailure: { error in
+                print("Error al obtener Pokémon por tipo: \(error.message)")
+                completion(nil)
             }
         )
     }

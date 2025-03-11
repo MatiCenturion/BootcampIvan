@@ -19,17 +19,29 @@
 		2AB325E02D7F23F700B5B291 /* Exceptions for "PokemonApi" folder in "PokemonApi" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				.swift,
 				Info.plist,
 			);
 			target = 2AB325CD2D7F23F500B5B291 /* PokemonApi */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		2A3C77E42D8078D90007DAAA /* Exceptions for "PokemonApi" folder in "Compile Sources" phase from "PokemonApi" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 2AB325CA2D7F23F500B5B291 /* Sources */;
+			membershipExceptions = (
+				.swift,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2AB325D02D7F23F500B5B291 /* PokemonApi */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				2AB325E02D7F23F700B5B291 /* Exceptions for "PokemonApi" folder in "PokemonApi" target */,
+				2A3C77E42D8078D90007DAAA /* Exceptions for "PokemonApi" folder in "Compile Sources" phase from "PokemonApi" target */,
 			);
 			path = PokemonApi;
 			sourceTree = "<group>";
