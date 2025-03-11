@@ -4,7 +4,6 @@
 //
 //  Created by bootcamp on 2025-03-10.
 //
-
 import Foundation
 
 // Clase encargada de gestionar las solicitudes de datos de Pokémon desde la PokeAPI

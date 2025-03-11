@@ -4,7 +4,6 @@
 //
 //  Created by bootcamp on 2025-03-10.
 //
-
 import Foundation
 
 // MARK: - Modelos de Pokémon
