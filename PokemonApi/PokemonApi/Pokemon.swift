@@ -74,6 +74,15 @@ struct PokemonResult: Decodable {
     let url: String
 }
 
+// MARK: - Section Model para agrupar Pokémon por tipo
+
+struct PokemonSection {
+    let typeName: String       // Ej: "Fuego"
+    let englishType: String    // Ej: "fire"
+    var pokemonNames: [String]
+    var isExpanded: Bool
+}
+
 // MARK: - HTTP Client y Enums
 
 enum HTTPMethod: String {
@@ -145,4 +154,3 @@ struct PokemonTypeResponse: Decodable {
 struct PokemonTypeEntryResponse: Decodable {
     let pokemon: PokemonResult
 }
-

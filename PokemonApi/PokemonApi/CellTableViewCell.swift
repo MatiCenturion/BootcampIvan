@@ -8,7 +8,7 @@
 import UIKit
 
 class CellTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var trailingImageView: UIImageView!
     @IBOutlet weak var tituloLabel: UILabel!
     
@@ -16,10 +16,10 @@ class CellTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Código de inicialización adicional si es necesario
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 }

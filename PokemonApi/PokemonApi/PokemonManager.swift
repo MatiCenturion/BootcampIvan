@@ -40,7 +40,7 @@ class PokemonManager {
             headers: nil,
             onSuccess: { (speciesData: PokemonSpecies) in
                 let descriptionEntry = speciesData.flavor_text_entries.first(where: { $0.language.name == "es" }) ??
-                                       speciesData.flavor_text_entries.first
+                speciesData.flavor_text_entries.first
                 completion(descriptionEntry?.flavor_text)
             },
             onFailure: { error in

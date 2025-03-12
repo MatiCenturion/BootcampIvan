@@ -9,13 +9,6 @@
 import UIKit
 import Kingfisher
 
-// MARK: - Modelo para agrupar por tipo
-struct PokemonSection {
-    let typeName: String       // Ej: "Fuego"
-    let englishType: String    // Ej: "fire"
-    var pokemonNames: [String]
-    var isExpanded: Bool
-}
 
 class MeenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -82,7 +75,7 @@ class MeenuViewController: UIViewController {
         setupPokemonSections()
         
         tableView.register(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
-
+        
     }
     
     func setupPokemonSections() {
@@ -91,7 +84,7 @@ class MeenuViewController: UIViewController {
         let sortedTypes = typeMapping.sorted { $0.key < $1.key }
         for (spanishType, englishType) in sortedTypes {
             // Inicialmente, las secciones estarán contraídas (isExpanded = false)
-            var section = PokemonSection(typeName: spanishType.capitalized, englishType: englishType, pokemonNames: [], isExpanded: false)
+            let  section = PokemonSection(typeName: spanishType.capitalized, englishType: englishType, pokemonNames: [], isExpanded: false)
             pokemonSections.append(section)
             // Llamada asíncrona para obtener la lista de Pokémon de cada tipo
             pokemonManager.fetchPokemonListByType(type: englishType) { [weak self] names in
@@ -227,7 +220,7 @@ extension MeenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokemonCell") as! CellTableViewCell
         let pokemonName = pokemonSections[indexPath.section].pokemonNames[indexPath.row]
         cell.tituloLabel.text = pokemonName
@@ -284,7 +277,7 @@ extension MeenuViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return header
     }
-
+    
     
     // Altura para el header de cada sección
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

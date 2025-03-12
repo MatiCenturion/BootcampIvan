@@ -7,7 +7,7 @@
 import UIKit
 
 class SectionHeaderView: UITableViewHeaderFooterView {
-
+    
     // MARK: - Componentes
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -27,7 +27,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
     
     // Closure para manejar el toque en el header
     var tapCallback: (() -> Void)?
-
+    
     // MARK: - Inicializadores
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
