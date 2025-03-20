@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/background_app"
+    tools:context=".imcCalculator.ResultImcActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/result"
+        android:layout_marginTop="16dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        
+        />
+    
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="32dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnRecalculate">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Normal"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tvIMC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Normal"
+                android:textSize="70sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Normal"
+                android:layout_marginVertical="64dp"
+                android:textSize="26dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.cardview.widget.CardView>
+    
+    <Button
+        android:id="@+id/btnRecalculate"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:text="@string/recalculate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
